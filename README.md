@@ -51,8 +51,8 @@ npm run build && npm start
 5. **Our Story** — three chapters on warm paper, alternating left and right.
    A gold thread draws itself between them as you scroll (GSAP ScrollTrigger),
    each illustrated scene slides in from its own side and drifts slowly as it
-   passes. Closes on a Swiper flip-through of all four pages of the printed
-   card — tap any page for a full-screen reader.
+   passes. Every scene hides under a gold-foil scratch panel — guests rub it
+   off (or tap / press Enter) to reveal the illustration.
 6. **The Celebrations** — a GSAP-drawn timeline for the Wedding (20 Nov,
    Jaipur) and Sangeet & Aashirwad Samaroh (22 Nov, Jodhpur), each with Google
    Maps directions and an "Add to Calendar" `.ics` download.

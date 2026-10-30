@@ -1,25 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Heart } from "lucide-react";
 import { story } from "@/lib/data";
 import { SectionTitle } from "./Ornaments";
+import ScratchImage from "./ScratchImage";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const CardViewer = dynamic(() => import("./CardViewer"), {
-  ssr: false,
-  loading: () => (
-    <div
-      className="aspect-[760/1153] w-full max-w-[260px] animate-pulse rounded-xl bg-cream-300/50"
-      aria-hidden
-    />
-  ),
-});
 
 function Chapter({ item, i }: { item: (typeof story)[number]; i: number }) {
   const flipped = i % 2 === 1;
@@ -42,7 +31,7 @@ function Chapter({ item, i }: { item: (typeof story)[number]; i: number }) {
             className="absolute -inset-2.5 rounded-2xl bg-white/80 shadow-[0_26px_55px_-30px_rgba(29,27,99,0.55)]"
             aria-hidden
           />
-          <Image
+          <ScratchImage
             src={item.image}
             alt={item.alt}
             width={588}
@@ -163,20 +152,6 @@ export default function Story() {
           {story.map((item, i) => (
             <Chapter key={item.id} item={item} i={i} />
           ))}
-        </div>
-
-        {/* closing beat — the invitation itself */}
-        <div className="mt-24 flex flex-col items-center text-center">
-          <p className="font-label text-[0.55rem] text-gold">And now</p>
-          <p className="font-script mt-3 text-4xl text-ink sm:text-5xl">
-            …this invitation
-          </p>
-          <p className="mt-4 max-w-sm text-base text-ink-mute italic">
-            Flip through the card our families had printed for you.
-          </p>
-          <div className="mt-10">
-            <CardViewer />
-          </div>
         </div>
       </div>
     </section>
