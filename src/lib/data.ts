@@ -277,8 +277,8 @@ export const festivities: FestivityItem[] = [
     time: "10:00 AM",
     sub: "Turmeric, marigolds & lots of laughter",
     pill: "Dipped in haldi, glowing with love!",
-    image: "/festivities/haldi.png",
-    imageAlt: "Avi and Guddu in yellow at the haldi, smeared with turmeric among marigold garlands",
+    image: "/festivities/haldi-2.png",
+    imageAlt: "Avi and Guddu sharing a candlelit feast",
   },
   {
     id: "mayra",
@@ -312,17 +312,6 @@ export const festivities: FestivityItem[] = [
     pill: "Step right up — laughter, colours & a little friendly competition!",
     image: "/festivities/carnival.png",
     imageAlt: "Avi and Guddu sharing popcorn and candy floss at the carnival",
-  },
-  {
-    id: "baraat",
-    name: "Baraat Welcome",
-    day: "Friday",
-    date: "20 November 2026",
-    time: "7:00 PM onwards",
-    sub: "Dhol, dancing & a grand welcome",
-    pill: "The baraat is here — welcome the groom, royal style!",
-    image: "/festivities/baraat.png",
-    imageAlt: "The groom arriving on horseback as the bride's side welcomes the baraat",
   },
   {
     id: "feast",
