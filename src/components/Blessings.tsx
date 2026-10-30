@@ -84,7 +84,7 @@ export default function Blessings() {
               <ScriptName name={couple.groom.short} />
             </p>
             <p className="font-script -mt-1 text-2xl text-gold-400 sm:text-3xl">
-              ({couple.groom.formal})
+              (<ScriptName name={couple.groom.formal} />)
             </p>
             <p className="mt-2 text-sm text-ink-mute sm:text-base">{couple.groom.lineage[1]}</p>
           </Line>
@@ -98,7 +98,7 @@ export default function Blessings() {
               <ScriptName name={couple.bride.short} />
             </p>
             <p className="font-script -mt-1 text-2xl text-gold-400 sm:text-3xl">
-              ({couple.bride.formal})
+              (<ScriptName name={couple.bride.formal} />)
             </p>
             <div className="mt-2 space-y-0.5 text-sm text-ink-mute sm:text-base">
               {couple.bride.lineage.map((l) => (

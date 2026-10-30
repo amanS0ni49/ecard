@@ -128,16 +128,19 @@ export function MarigoldCorner({
 }
 
 /**
- * A name in the script face with its initial enlarged. Great Vibes draws its
- * swash capitals close in height to the lowercase, so without this the A in
- * Avi and the G in Guddu read as lowercase.
+ * A name in the script face with a drop-cap initial. Great Vibes draws its
+ * swash capitals close to the lowercase in shape as well as height, so the A
+ * in Avi and the G in Guddu still read as small letters even enlarged — the
+ * initial is set in the display serif instead, where capitals are unambiguous.
  */
 export function ScriptName({ name, className = "" }: { name: string; className?: string }) {
   const first = name.slice(0, 1);
   const rest = name.slice(1);
   return (
     <span className={className}>
-      <span className="text-[1.3em]">{first}</span>
+      <span className="font-display text-[1.25em] leading-[0.8] font-medium italic">
+        {first}
+      </span>
       {rest}
     </span>
   );

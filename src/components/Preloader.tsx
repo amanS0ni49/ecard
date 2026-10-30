@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScriptName } from "./Ornaments";
 
 /**
  * The curtain-raiser: a sealed envelope the guest taps to open.
@@ -162,7 +163,9 @@ export default function Preloader({
             />
             <p className="font-label text-[0.45rem] text-gold">Wedding Invitation</p>
             <p className="font-script text-3xl leading-tight text-ink">
-              Avi <span className="text-xl text-gold">&amp;</span> Guddu
+              <ScriptName name="Avi" />{" "}
+              <span className="text-xl text-gold">&amp;</span>{" "}
+              <ScriptName name="Guddu" />
             </p>
             <p className="font-label text-[0.45rem] text-ink-mute">20 · 11 · 2026</p>
           </div>

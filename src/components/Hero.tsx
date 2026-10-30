@@ -118,12 +118,16 @@ export default function Hero({ started }: { started: boolean }) {
         >
           <p className="font-script text-[2rem] leading-tight text-ink sm:text-5xl md:text-6xl">
             <ScriptName name="Avi" />{" "}
-            <span className="align-middle text-xl text-gold sm:text-3xl">(Bhavesh)</span>
+            <span className="align-middle text-xl text-gold sm:text-3xl">
+              (<ScriptName name="Bhavesh" />)
+            </span>
           </p>
           <p className="font-script text-xl leading-tight text-gold sm:text-3xl">&amp;</p>
           <p className="font-script text-[2rem] leading-tight text-ink sm:text-5xl md:text-6xl">
             <ScriptName name="Guddu" />{" "}
-            <span className="align-middle text-xl text-gold sm:text-3xl">(Janhavi)</span>
+            <span className="align-middle text-xl text-gold sm:text-3xl">
+              (<ScriptName name="Janhavi" />)
+            </span>
           </p>
         </motion.div>
 
