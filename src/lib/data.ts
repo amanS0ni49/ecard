@@ -226,10 +226,132 @@ export const story = [
   },
 ];
 
+export type FestivityItem = {
+  id: string;
+  name: string;
+  day: string;
+  date: string;
+  time: string;
+  /** the descriptive line under the date */
+  sub: string;
+  /** the little caption chip under the copy */
+  pill: string;
+  /** PLACEHOLDER — swap for the real photo paths once supplied. */
+  image: string;
+  imageAlt: string;
+};
+
+/**
+ * The run-up to the wedding — every ritual and celebration on the family's
+ * itinerary, in order. Images currently reuse the site's own artwork;
+ * drop the real photos in /public and update `image` / `imageAlt` here.
+ */
+export const festivities: FestivityItem[] = [
+  {
+    id: "vivah-hath",
+    name: "Vivah Hath",
+    day: "Tuesday",
+    date: "10 November 2026",
+    time: "3:00 PM",
+    sub: "The first ritual — hands on the stone chakki",
+    pill: "Where the celebrations begin — with the first turn of the chakki.",
+    image: "/festivities/vivah-hath.png",
+    imageAlt: "Avi and Guddu grinding daal together on the stone chakki",
+  },
+  {
+    id: "ganesh-nimantran",
+    name: "Ganesh Nimantran",
+    day: "Wednesday",
+    date: "11 November 2026",
+    time: "9:00 AM",
+    sub: "At the family residence",
+    pill: "The first invitation goes to Bappa — every beginning starts with His blessings.",
+    image: "/festivities/ganesh-nimantran.png",
+    imageAlt: "Avi and Guddu offering aarti before Ganesh ji",
+  },
+  {
+    id: "haldi",
+    name: "Rango Ki Haldi",
+    day: "Thursday",
+    date: "19 November 2026",
+    time: "10:00 AM",
+    sub: "Turmeric, marigolds & lots of laughter",
+    pill: "Dipped in haldi, glowing with love!",
+    image: "/festivities/haldi.png",
+    imageAlt: "Avi and Guddu in yellow at the haldi, smeared with turmeric among marigold garlands",
+  },
+  {
+    id: "mayra",
+    name: "Mayra",
+    day: "Thursday",
+    date: "19 November 2026",
+    time: "1:00 PM",
+    sub: "Gifts & blessings from the nanihal side",
+    pill: "Blessings, served with love.",
+    image: "/festivities/mayra.png",
+    imageAlt: "The couple showered with gifts and blessings at the Mayra",
+  },
+  {
+    id: "engagement",
+    name: "Engagement",
+    day: "Thursday",
+    date: "19 November 2026",
+    time: "7:30 PM",
+    sub: "The ring ceremony, with everyone we love",
+    pill: "Two rings, two hearts — the promise begins!",
+    image: "/festivities/engagement.png",
+    imageAlt: "Avi slipping the ring onto Guddu's finger under the floral canopy",
+  },
+  {
+    id: "carnival",
+    name: "Carnival",
+    day: "Friday",
+    date: "20 November 2026",
+    time: "11:00 AM",
+    sub: "Games, giggles & fairground treats",
+    pill: "Step right up — laughter, colours & a little friendly competition!",
+    image: "/festivities/carnival.png",
+    imageAlt: "Avi and Guddu sharing popcorn and candy floss at the carnival",
+  },
+  {
+    id: "baraat",
+    name: "Baraat Welcome",
+    day: "Friday",
+    date: "20 November 2026",
+    time: "7:00 PM onwards",
+    sub: "Dhol, dancing & a grand welcome",
+    pill: "The baraat is here — welcome the groom, royal style!",
+    image: "/festivities/baraat.png",
+    imageAlt: "The groom arriving on horseback as the bride's side welcomes the baraat",
+  },
+  {
+    id: "feast",
+    name: "The Royal Feast",
+    day: "Friday",
+    date: "20 November 2026",
+    time: "7:30 PM",
+    sub: "A grand wedding feast — come hungry",
+    pill: "A royal feast awaits you!",
+    image: "/festivities/feast.png",
+    imageAlt: "Avi and Guddu sharing dinner at the royal wedding feast",
+  },
+  {
+    id: "paanigrahan",
+    name: "Paanigrahan Sanskar",
+    day: "Friday",
+    date: "20 November 2026",
+    time: "Auspicious Muhurat",
+    sub: "The sacred wedding ceremony",
+    pill: "Two hands, one promise — the sacred union.",
+    image: "/festivities/paanigrahan.png",
+    imageAlt: "Avi and Guddu hand in hand before the sacred fire at the wedding ceremony",
+  },
+];
+
 export const navSections = [
   { id: "home", label: "Home" },
   { id: "couple", label: "Couple" },
-  { id: "story", label: "Our Story" },
+  { id: "festivities", label: "Festivities" },
   { id: "events", label: "Events" },
   { id: "family", label: "Family" },
   { id: "rsvp", label: "RSVP" },

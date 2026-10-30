@@ -17,7 +17,6 @@ illustrated portraits.
 | Styling | Tailwind CSS v4 (`@theme` tokens in `src/app/globals.css`) |
 | Animation | Framer Motion (reveals, parallax, countdown, lightbox) |
 | Scroll animation | GSAP + ScrollTrigger (timeline spine, portrait entrances, art parallax) |
-| Carousel | Swiper (coverflow) |
 | Icons | lucide-react |
 | Deploy | Vercel |
 
@@ -53,13 +52,16 @@ npm run build && npm start
    each illustrated scene slides in from its own side and drifts slowly as it
    passes. Every scene hides under a gold-foil scratch panel — guests rub it
    off (or tap / press Enter) to reveal the illustration.
-6. **The Celebrations** — a GSAP-drawn timeline for the Wedding (20 Nov,
+6. **The Festivities** — the full run-up itinerary (Vivah Hath through
+   Paanigrahan Sanskar) as a grid of arched cards, each with its date pill,
+   the site's own artwork and a caption, revealed with a GSAP stagger.
+7. **The Celebrations** — a GSAP-drawn timeline for the Wedding (20 Nov,
    Jaipur) and Sangeet & Aashirwad Samaroh (22 Nov, Jodhpur), each with Google
    Maps directions and an "Add to Calendar" `.ics` download.
-7. **Mathur Family** — every name from page 4 of the card.
-8. **RSVP** — a form that composes a WhatsApp message to the host number. No
+8. **Mathur Family** — every name from page 4 of the card.
+9. **RSVP** — a form that composes a WhatsApp message to the host number. No
    backend, no database; the guest presses send themselves.
-9. **Footer** — the "From" block, address and phone numbers.
+10. **Footer** — the "From" block, address and phone numbers.
 
 Plus a scroll-progress rule, a share button (Web Share API with
 clipboard fallback), a music toggle, and a floating nav that shows icons on

@@ -6,7 +6,7 @@ import Preloader from "@/components/Preloader";
 import Hero from "@/components/Hero";
 import Blessings from "@/components/Blessings";
 import Couple from "@/components/Couple";
-import Story from "@/components/Story";
+import Festivities from "@/components/Festivities";
 import Events from "@/components/Events";
 import Family from "@/components/Family";
 import Rsvp from "@/components/Rsvp";
@@ -82,7 +82,7 @@ export default function Page() {
         <Hero started={started} />
         <Blessings />
         <Couple />
-        <Story />
+        <Festivities />
         <Events />
         <Family />
         <Rsvp />

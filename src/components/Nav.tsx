@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   CalendarDays,
-  BookHeart,
   Heart,
   Home,
   MailCheck,
+  PartyPopper,
   Users,
   type LucideIcon,
 } from "lucide-react";
@@ -17,7 +17,7 @@ import { navSections } from "@/lib/data";
 const ICONS: Record<string, LucideIcon> = {
   home: Home,
   couple: Heart,
-  story: BookHeart,
+  festivities: PartyPopper,
   events: CalendarDays,
   family: Users,
   rsvp: MailCheck,

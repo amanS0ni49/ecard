@@ -30,13 +30,20 @@ export default function ScratchImage({
   height,
   sizes,
   className = "",
+  aspect,
+  fit = "cover",
 }: {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  /** Natural dims — optional when `aspect` locks the frame instead. */
+  width?: number;
+  height?: number;
   sizes: string;
   className?: string;
+  /** Lock the frame to a ratio, e.g. "aspect-[5/4]"; image fills it. */
+  aspect?: string;
+  /** How the image sits inside a locked frame. */
+  fit?: "cover" | "contain";
 }) {
   const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -192,15 +199,30 @@ export default function ScratchImage({
   );
 
   return (
-    <div ref={wrap} className="relative">
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        sizes={sizes}
-        className={className}
-      />
+    <div
+      ref={wrap}
+      className={`relative ${aspect ? `${aspect} overflow-hidden rounded-xl` : ""} ${
+        fit === "contain" ? "bg-gradient-to-b from-powder-200 to-powder-300" : ""
+      }`}
+    >
+      {aspect ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          className={`${fit === "contain" ? "object-contain p-8" : "object-cover"} ${className}`}
+        />
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          sizes={sizes}
+          className={className}
+        />
+      )}
       <canvas
         ref={canvas}
         role="button"
