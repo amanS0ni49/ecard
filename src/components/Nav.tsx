@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   CalendarDays,
-  Sparkles,
+  BookHeart,
   Heart,
   Home,
   MailCheck,
@@ -17,7 +17,7 @@ import { navSections } from "@/lib/data";
 const ICONS: Record<string, LucideIcon> = {
   home: Home,
   couple: Heart,
-  "save-the-date": Sparkles,
+  story: BookHeart,
   events: CalendarDays,
   family: Users,
   rsvp: MailCheck,

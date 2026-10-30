@@ -48,12 +48,11 @@ npm run build && npm start
    revealed line by line.
 4. **The Couple** — illustrated portraits in gold medallions, with each
    person's full lineage.
-5. **Save the Date** — a full-bleed dark break in the middle of the page: twin
-   kinetic marquees that speed up and reverse with your scroll (GSAP
-   ScrollTrigger velocity), then a bento grid holding a live countdown, a
-   Swiper flip-through of all four pages of the printed card (tap for a
-   full-screen reader), both venue tiles wired to Google Maps, and the
-   add-both-dates / RSVP actions.
+5. **Our Story** — three chapters on warm paper, alternating left and right.
+   A gold thread draws itself between them as you scroll (GSAP ScrollTrigger),
+   each illustrated scene slides in from its own side and drifts slowly as it
+   passes. Closes on a Swiper flip-through of all four pages of the printed
+   card — tap any page for a full-screen reader.
 6. **The Celebrations** — a GSAP-drawn timeline for the Wedding (20 Nov,
    Jaipur) and Sangeet & Aashirwad Samaroh (22 Nov, Jodhpur), each with Google
    Maps directions and an "Add to Calendar" `.ics` download.
@@ -87,6 +86,16 @@ A prompt that matches this card's palette:
 > jhumkas and a bindi}, bust framing, three-quarter view, inside a thin gold
 > circular frame with a dashed outer ring and small lotus motifs, soft
 > powder-blue background, clean minimal shapes, no text.
+
+### Replace the story images (worth doing)
+
+`public/story/1.jpg`–`3.jpg` were sliced out of the 489×732 story artwork and
+upscaled 2×, so they are **soft** — good enough to show the layout, not good
+enough to ship. Overwrite them with the full-resolution originals (roughly
+1200×1000 each, landscape) and they will sharpen up with no code change.
+
+The wording in `story` inside `src/lib/data.ts` is taken from that artwork;
+edit it there.
 
 ### Swap in a licensed song
 

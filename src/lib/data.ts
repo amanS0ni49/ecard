@@ -195,10 +195,41 @@ export const familyFooterGroups = [
   },
 ];
 
+/**
+ * The couple's own words, from the story artwork they supplied.
+ * Swap the images at /public/story for full-resolution versions any time.
+ */
+export const story = [
+  {
+    id: "conversations",
+    step: "01",
+    title: "It Started with Conversations",
+    body: "Coffee, endless talks and a million little moments that made everything feel right.",
+    image: "/story/1.jpg",
+    alt: "Illustration of Avi and Guddu sharing coffee on a yellow sofa",
+  },
+  {
+    id: "comfort",
+    step: "02",
+    title: "Then Came Comfort",
+    body: "The kind of comfort where we could just be ourselves.",
+    image: "/story/2.jpg",
+    alt: "Illustration of Avi and Guddu curled up together on a rainy afternoon",
+  },
+  {
+    id: "forever",
+    step: "03",
+    title: "And Now\u2026 Forever",
+    body: "Different moments, same team. Here's to a lifetime of more coffee, more adventures and a whole lot more us.",
+    image: "/story/3.jpg",
+    alt: "Illustration of Avi and Guddu standing back to back, holding hands",
+  },
+];
+
 export const navSections = [
   { id: "home", label: "Home" },
   { id: "couple", label: "Couple" },
-  { id: "save-the-date", label: "The Date" },
+  { id: "story", label: "Our Story" },
   { id: "events", label: "Events" },
   { id: "family", label: "Family" },
   { id: "rsvp", label: "RSVP" },

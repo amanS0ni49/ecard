@@ -63,7 +63,7 @@ export default function CardViewer() {
           autoplay={{ delay: 3800, disableOnInteraction: false, pauseOnMouseEnter: true }}
           pagination={{ clickable: true, el: ".js-card-dots" }}
           onSlideChange={(s) => setActive(s.realIndex)}
-          className="overflow-hidden rounded-xl ring-1 ring-gold-300/35"
+          className="overflow-hidden rounded-xl ring-1 ring-gold/30 shadow-[0_22px_48px_-28px_rgba(29,27,99,0.5)]"
         >
           {PAGES.map((p, i) => (
             <SwiperSlide key={p.src}>
@@ -91,10 +91,10 @@ export default function CardViewer() {
         </Swiper>
 
         <div className="mt-4 flex items-center justify-between gap-3">
-          <p className="font-label min-w-0 truncate text-[0.5rem] text-gold-200">
+          <p className="font-label min-w-0 truncate text-[0.5rem] text-gold">
             {PAGES[active].label}
           </p>
-          <div className="js-card-dots flex items-center gap-1.5 [&_.swiper-pagination-bullet]:size-1.5 [&_.swiper-pagination-bullet]:cursor-pointer [&_.swiper-pagination-bullet]:rounded-full [&_.swiper-pagination-bullet]:bg-cream-100/30 [&_.swiper-pagination-bullet]:transition-all [&_.swiper-pagination-bullet-active]:w-5 [&_.swiper-pagination-bullet-active]:bg-gold-300" />
+          <div className="js-card-dots flex items-center gap-1.5 [&_.swiper-pagination-bullet]:size-1.5 [&_.swiper-pagination-bullet]:cursor-pointer [&_.swiper-pagination-bullet]:rounded-full [&_.swiper-pagination-bullet]:bg-ink/25 [&_.swiper-pagination-bullet]:transition-all [&_.swiper-pagination-bullet-active]:w-5 [&_.swiper-pagination-bullet-active]:bg-gold" />
         </div>
       </div>
 
