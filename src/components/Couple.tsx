@@ -1,12 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Heart } from "lucide-react";
 import { couple } from "@/lib/data";
-import { BrideAvatar, GroomAvatar } from "./Avatars";
-import { SectionTitle } from "./Ornaments";
+import { ScriptName, SectionTitle } from "./Ornaments";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,37 +15,34 @@ type Person = {
   formal: string;
   role: string;
   initial: string;
-  avatar: "groom" | "bride";
+  portrait: string;
   lineage: readonly string[];
 };
 
-/** A drawn avatar in a gold medallion — the card carries no photographs. */
+/**
+ * Illustrated portrait, not a photograph. The artwork already carries its own
+ * gold ring, dashed border and lotus motifs on a powder ground that matches
+ * the section, so it is rendered square and left to blend — no extra chrome.
+ */
 function Portrait({ person, side }: { person: Person; side: "left" | "right" }) {
-  const Avatar = person.avatar === "groom" ? GroomAvatar : BrideAvatar;
-
   return (
     <div className="js-portrait flex flex-col items-center" data-side={side}>
-      <div className="group relative">
-        <span className="absolute -inset-3 rounded-full border border-dashed border-gold/35 transition-transform duration-[6000ms] group-hover:rotate-180" />
-        <div className="relative flex size-52 items-end justify-center overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_28%,#ffffff,#e2f1f6_52%,#bfdfea)] ring-1 ring-gold/40 shadow-[0_22px_50px_-26px_rgba(29,27,99,0.6)] sm:size-60 md:size-68">
-          <span className="damask absolute inset-0 opacity-50" aria-hidden />
-
-          {/* the initial sits behind the figure like a watermark */}
-          <span
-            className="font-script absolute inset-0 flex items-center justify-center text-[9rem] leading-none text-gold/12 select-none"
-            aria-hidden
-          >
-            {person.initial}
-          </span>
-
-          <Avatar className="relative z-10 size-[88%] translate-y-1 transition-transform duration-700 group-hover:scale-105" />
-
-          <span className="pointer-events-none absolute inset-0 rounded-full ring-6 ring-white/35 ring-inset" aria-hidden />
-        </div>
+      <div className="group relative size-60 sm:size-68 md:size-76">
+        <Image
+          src={person.portrait}
+          alt={`Illustrated portrait of ${person.short} (${person.formal})`}
+          width={760}
+          height={760}
+          sizes="(max-width: 640px) 15rem, 19rem"
+          className="size-full transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          priority={side === "left"}
+        />
       </div>
 
-      <p className="font-label mt-6 text-[0.55rem] text-gold">{person.role}</p>
-      <p className="font-script mt-1 text-5xl text-ink sm:text-6xl">{person.short}</p>
+      <p className="font-label mt-4 text-[0.55rem] text-gold">{person.role}</p>
+      <p className="font-script mt-1 text-5xl text-ink sm:text-6xl">
+        <ScriptName name={person.short} />
+      </p>
       <p className="font-display text-lg text-gold-400 italic sm:text-xl">({person.formal})</p>
       <div className="mt-3 max-w-xs space-y-1 text-center text-sm text-ink-mute sm:text-base">
         {person.lineage.map((l) => (

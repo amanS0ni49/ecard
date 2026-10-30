@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { blessings, couple, events } from "@/lib/data";
-import { Divider, GaneshaSeal, MarigoldCorner } from "./Ornaments";
+import { Divider, GaneshaSeal, MarigoldCorner, ScriptName } from "./Ornaments";
 
 const wedding = events[0];
 
@@ -80,7 +80,9 @@ export default function Blessings() {
           </Line>
 
           <Line i={5} show={show} className="mt-7">
-            <p className="font-script text-5xl text-foil sm:text-6xl">{couple.groom.short}</p>
+            <p className="font-script text-5xl text-foil sm:text-6xl">
+              <ScriptName name={couple.groom.short} />
+            </p>
             <p className="font-script -mt-1 text-2xl text-gold-400 sm:text-3xl">
               ({couple.groom.formal})
             </p>
@@ -92,7 +94,9 @@ export default function Blessings() {
           </Line>
 
           <Line i={7} show={show} className="mt-4">
-            <p className="font-script text-5xl text-foil sm:text-6xl">{couple.bride.short}</p>
+            <p className="font-script text-5xl text-foil sm:text-6xl">
+              <ScriptName name={couple.bride.short} />
+            </p>
             <p className="font-script -mt-1 text-2xl text-gold-400 sm:text-3xl">
               ({couple.bride.formal})
             </p>

@@ -127,6 +127,22 @@ export function MarigoldCorner({
   );
 }
 
+/**
+ * A name in the script face with its initial enlarged. Great Vibes draws its
+ * swash capitals close in height to the lowercase, so without this the A in
+ * Avi and the G in Guddu read as lowercase.
+ */
+export function ScriptName({ name, className = "" }: { name: string; className?: string }) {
+  const first = name.slice(0, 1);
+  const rest = name.slice(1);
+  return (
+    <span className={className}>
+      <span className="text-[1.3em]">{first}</span>
+      {rest}
+    </span>
+  );
+}
+
 /** Small gold-foil Ganesha used as a section seal. */
 export function GaneshaSeal({ size = 68, className = "" }: { size?: number; className?: string }) {
   return (

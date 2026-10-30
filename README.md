@@ -7,7 +7,7 @@ garlands, swastik, lotus badge, Jaipur garden band, dholak, dancing couple) was
 extracted straight out of it so the site and the card match.
 
 **No photographs anywhere on the site** — the couple are represented by
-hand-drawn flat-vector avatars.
+illustrated portraits.
 
 ## Stack
 
@@ -46,8 +46,8 @@ npm run build && npm start
    mouse/scroll parallax on the garlands and garden band.
 3. **The Invitation** — the full formal wording from page 2 of the card,
    revealed line by line.
-4. **The Couple** — drawn avatars in gold medallions, with each person's full
-   lineage.
+4. **The Couple** — illustrated portraits in gold medallions, with each
+   person's full lineage.
 5. **Save the Date** — a full-bleed dark break in the middle of the page: twin
    kinetic marquees that speed up and reverse with your scroll (GSAP
    ScrollTrigger velocity), then a bento grid holding a live countdown, a
@@ -70,22 +70,23 @@ phones and labels on wider screens.
 
 ### Swap in your own portraits
 
-The avatars live in `src/components/Avatars.tsx` as inline SVG. If you generate
-portrait illustrations elsewhere (an image model, an illustrator, anything):
+The couple are shown as illustrated portraits at `public/art/groom.jpg` and
+`public/art/bride.jpg` — square artwork whose own gold ring, dashed border and
+lotus motifs sit on a powder ground that matches the section, so it renders
+square and blends in with no extra framing.
 
-1. Save them as `public/art/groom.png` and `public/art/bride.png`, ideally
-   square and transparent.
-2. In `src/components/Couple.tsx`, replace `<Avatar … />` with a Next.js
-   `<Image>` pointing at those files. The medallion, ring, hover and scroll
-   animation all stay as they are.
+To replace them, overwrite those two files with square images on the same
+`#e1f2f7` background. Nothing in the code needs to change. If your artwork has
+a transparent or differently coloured background, add a circular mask in
+`Portrait` inside `src/components/Couple.tsx`.
 
 A prompt that matches this card's palette:
 
-> Flat vector portrait illustration of an Indian {groom in a marigold-yellow
-> safa with a gold kalgi, round glasses and a cream sherwani / bride in a rose
-> dupatta with gold border, maang tikka, jhumkas and a bindi}, bust framing,
-> centred, soft powder-blue background, navy and antique-gold accents, clean
-> minimal shapes, no gradients, no text.
+> Flat vector portrait illustration of an Indian {groom in a cream embroidered
+> sherwani with glasses / bride in a deep pink lehenga with maang tikka,
+> jhumkas and a bindi}, bust framing, three-quarter view, inside a thin gold
+> circular frame with a dashed outer ring and small lotus motifs, soft
+> powder-blue background, clean minimal shapes, no text.
 
 ### Swap in a licensed song
 
@@ -111,8 +112,8 @@ wrong, fix `calStart` / `calEnd` on the wedding entry in `src/lib/data.ts`.
 ### Everything else
 
 `src/lib/data.ts` is the single source of truth — names, lineage, elders,
-events, venues, the family lists, the host block and the blessing verses. Edit
-there and the whole page follows.
+events, venues, the family lists and the host block. Edit there and the whole
+page follows.
 
 ## Deploying to Vercel
 

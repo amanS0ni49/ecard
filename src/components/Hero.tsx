@@ -6,7 +6,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Countdown from "./Countdown";
 import Petals from "./Petals";
-import { GaneshaSeal, MarigoldCorner } from "./Ornaments";
+import { GaneshaSeal, MarigoldCorner, ScriptName } from "./Ornaments";
 
 const rise = {
   hidden: { opacity: 0, y: 26 },
@@ -117,11 +117,13 @@ export default function Hero({ started }: { started: boolean }) {
           className="mt-4 space-y-0"
         >
           <p className="font-script text-[2rem] leading-tight text-ink sm:text-5xl md:text-6xl">
-            Avi <span className="align-middle text-xl text-gold sm:text-3xl">(Bhavesh)</span>
+            <ScriptName name="Avi" />{" "}
+            <span className="align-middle text-xl text-gold sm:text-3xl">(Bhavesh)</span>
           </p>
           <p className="font-script text-xl leading-tight text-gold sm:text-3xl">&amp;</p>
           <p className="font-script text-[2rem] leading-tight text-ink sm:text-5xl md:text-6xl">
-            Guddu <span className="align-middle text-xl text-gold sm:text-3xl">(Janhavi)</span>
+            <ScriptName name="Guddu" />{" "}
+            <span className="align-middle text-xl text-gold sm:text-3xl">(Janhavi)</span>
           </p>
         </motion.div>
 

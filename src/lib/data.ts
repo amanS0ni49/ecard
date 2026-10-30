@@ -3,14 +3,14 @@
  * Keep this file as the single source of truth so the card and the site never drift.
  */
 
-/** No photographs anywhere on this card — each side gets a drawn avatar. */
+/** Illustrated portraits, not photographs — see /public/art. */
 export const couple = {
   groom: {
     short: "Avi",
     formal: "Bhavesh",
     role: "The Groom",
     initial: "A",
-    avatar: "groom" as const,
+    portrait: "/art/groom.jpg",
     lineage: [
       "Son of Smt. Vandana & Shri Praveen Rai",
       "Maternal Grand S/o Smt. Rajrani Ji & Late Shri Shyam Sunder Ji Mathur",
@@ -21,7 +21,7 @@ export const couple = {
     formal: "Janhavi",
     role: "The Bride",
     initial: "G",
-    avatar: "bride" as const,
+    portrait: "/art/bride.jpg",
     lineage: [
       "Daughter of Smt. Pinky Ji & Late Shri Ashok Ji Soni",
       "Grand D/o Late Smt. Geeta Devi Ji & Late Shri Om Prakash Ji Soni",

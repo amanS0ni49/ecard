@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { host } from "@/lib/data";
-import { Divider, GaneshaSeal } from "./Ornaments";
+import { Divider, GaneshaSeal, ScriptName } from "./Ornaments";
 
 export default function Footer() {
   return (
@@ -53,7 +53,8 @@ export default function Footer() {
         <Divider className="mt-10" width={90} />
 
         <p className="font-script mt-8 text-3xl leading-snug text-ink sm:text-4xl">
-          Avi <span className="text-gold">&amp;</span> Guddu
+          <ScriptName name="Avi" /> <span className="text-gold">&amp;</span>{" "}
+          <ScriptName name="Guddu" />
         </p>
         <p className="font-label mt-3 text-[0.55rem] text-gold">20 · 11 · 2026</p>
         <p className="mt-6 text-base text-ink-mute italic">
