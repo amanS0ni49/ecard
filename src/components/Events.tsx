@@ -11,10 +11,39 @@ import { SectionTitle } from "./Ornaments";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ART: Record<EventItem["icon"], { src: string; w: number; h: number }> = {
-  rings: { src: "/art/pavilion.png", w: 362, h: 1026 },
-  music: { src: "/art/dancers.png", w: 401, h: 564 },
+/**
+ * The pavilion artwork carries its own painted sky, so both illustrations go
+ * inside a matching arched frame rather than floating on the page.
+ */
+const ART: Record<
+  EventItem["icon"],
+  { src: string; w: number; h: number; fit: "cover" | "contain" }
+> = {
+  rings: { src: "/art/pavilion.png", w: 362, h: 1026, fit: "cover" },
+  music: { src: "/art/dancers.png", w: 401, h: 564, fit: "contain" },
 };
+
+function ArchFrame({ icon }: { icon: EventItem["icon"] }) {
+  const art = ART[icon];
+  return (
+    <div className="js-event-art relative w-44 sm:w-56">
+      <span className="absolute -inset-2 rounded-t-full rounded-b-xl border border-dashed border-gold/30" />
+      <div className="relative aspect-[3/4.4] overflow-hidden rounded-t-full rounded-b-xl bg-gradient-to-b from-powder-200 to-powder-300 ring-1 ring-gold/40 shadow-[0_22px_46px_-26px_rgba(29,27,99,0.6)]">
+        <Image
+          src={art.src}
+          alt=""
+          width={art.w}
+          height={art.h}
+          aria-hidden
+          className={`size-full select-none ${
+            art.fit === "cover" ? "object-cover object-bottom" : "object-contain p-5 pb-7"
+          }`}
+        />
+        <span className="pointer-events-none absolute inset-0 rounded-t-full rounded-b-xl bg-gradient-to-t from-ink/15 via-transparent to-transparent" />
+      </div>
+    </div>
+  );
+}
 
 function EventCard({ event, index }: { event: EventItem; index: number }) {
   const Icon = event.icon === "music" ? Music4 : Sparkles;
@@ -94,14 +123,7 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
       </div>
 
       <div className="flex justify-center md:w-1/2">
-        <Image
-          src={ART[event.icon].src}
-          alt=""
-          width={ART[event.icon].w}
-          height={ART[event.icon].h}
-          className="js-event-art h-auto w-40 select-none drop-shadow-[0_18px_28px_rgba(29,27,99,0.18)] sm:w-52"
-          aria-hidden
-        />
+        <ArchFrame icon={event.icon} />
       </div>
     </article>
   );

@@ -3,12 +3,14 @@
  * Keep this file as the single source of truth so the card and the site never drift.
  */
 
+/** No photographs anywhere on this card — each side gets a drawn avatar. */
 export const couple = {
   groom: {
     short: "Avi",
     formal: "Bhavesh",
     role: "The Groom",
-    photo: "/photos/2.jpg",
+    initial: "A",
+    avatar: "groom" as const,
     lineage: [
       "Son of Smt. Vandana & Shri Praveen Rai",
       "Maternal Grand S/o Smt. Rajrani Ji & Late Shri Shyam Sunder Ji Mathur",
@@ -18,7 +20,8 @@ export const couple = {
     short: "Guddu",
     formal: "Janhavi",
     role: "The Bride",
-    photo: "/photos/4.jpg",
+    initial: "G",
+    avatar: "bride" as const,
     lineage: [
       "Daughter of Smt. Pinky Ji & Late Shri Ashok Ji Soni",
       "Grand D/o Late Smt. Geeta Devi Ji & Late Shri Om Prakash Ji Soni",
@@ -27,8 +30,12 @@ export const couple = {
   },
 } as const;
 
-/** The wedding day itself — this drives the countdown. */
-export const WEDDING_DATE = new Date("2026-11-20T00:00:00+05:30");
+/**
+ * The wedding day itself — this drives the countdown. Kept as a string so it
+ * is only turned into a Date on the client; a module-level `new Date()` would
+ * be frozen at prerender time under Cache Components.
+ */
+export const WEDDING_ISO = "2026-11-20T00:00:00+05:30";
 
 export const blessings = {
   invocation: "!! Shri Ganeshay Namah !!",
@@ -188,17 +195,10 @@ export const familyFooterGroups = [
   },
 ];
 
-export const gallery = [
-  { src: "/photos/1.jpg", caption: "Two cups, one morning" },
-  { src: "/photos/2.jpg", caption: "The look that started it all" },
-  { src: "/photos/3.jpg", caption: "Rainy afternoons, no plans" },
-  { src: "/photos/4.jpg", caption: "Back to back, hand in hand" },
-];
-
 export const navSections = [
   { id: "home", label: "Home" },
   { id: "couple", label: "Couple" },
-  { id: "story", label: "Moments" },
+  { id: "save-the-date", label: "The Date" },
   { id: "events", label: "Events" },
   { id: "family", label: "Family" },
   { id: "rsvp", label: "RSVP" },

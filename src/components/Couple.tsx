@@ -1,32 +1,46 @@
 "use client";
 
-import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Heart } from "lucide-react";
 import { couple } from "@/lib/data";
+import { BrideAvatar, GroomAvatar } from "./Avatars";
 import { SectionTitle } from "./Ornaments";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Person = (typeof couple)["groom"];
+type Person = {
+  short: string;
+  formal: string;
+  role: string;
+  initial: string;
+  avatar: "groom" | "bride";
+  lineage: readonly string[];
+};
 
+/** A drawn avatar in a gold medallion — the card carries no photographs. */
 function Portrait({ person, side }: { person: Person; side: "left" | "right" }) {
+  const Avatar = person.avatar === "groom" ? GroomAvatar : BrideAvatar;
+
   return (
     <div className="js-portrait flex flex-col items-center" data-side={side}>
       <div className="group relative">
-        {/* rotating gold ring behind the photo */}
         <span className="absolute -inset-3 rounded-full border border-dashed border-gold/35 transition-transform duration-[6000ms] group-hover:rotate-180" />
-        <div className="relative size-52 overflow-hidden rounded-full ring-1 ring-gold/40 shadow-[0_22px_50px_-26px_rgba(29,27,99,0.6)] sm:size-60 md:size-68">
-          <Image
-            src={person.photo}
-            alt={`${person.short} (${person.formal})`}
-            fill
-            sizes="(max-width: 640px) 13rem, 17rem"
-            className="js-portrait-img scale-110 object-cover object-top transition-transform duration-700 group-hover:scale-125"
-          />
-          <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-ink/25 via-transparent to-transparent" />
+        <div className="relative flex size-52 items-end justify-center overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_28%,#ffffff,#e2f1f6_52%,#bfdfea)] ring-1 ring-gold/40 shadow-[0_22px_50px_-26px_rgba(29,27,99,0.6)] sm:size-60 md:size-68">
+          <span className="damask absolute inset-0 opacity-50" aria-hidden />
+
+          {/* the initial sits behind the figure like a watermark */}
+          <span
+            className="font-script absolute inset-0 flex items-center justify-center text-[9rem] leading-none text-gold/12 select-none"
+            aria-hidden
+          >
+            {person.initial}
+          </span>
+
+          <Avatar className="relative z-10 size-[88%] translate-y-1 transition-transform duration-700 group-hover:scale-105" />
+
+          <span className="pointer-events-none absolute inset-0 rounded-full ring-6 ring-white/35 ring-inset" aria-hidden />
         </div>
       </div>
 
@@ -58,15 +72,6 @@ export default function Couple() {
           duration: 1.1,
           ease: "power3.out",
           scrollTrigger: { trigger: el, start: "top 85%" },
-        });
-      });
-
-      // Slow parallax inside each frame while the section passes through.
-      gsap.utils.toArray<HTMLElement>(".js-portrait-img").forEach((img) => {
-        gsap.to(img, {
-          yPercent: -8,
-          ease: "none",
-          scrollTrigger: { trigger: img, start: "top bottom", end: "bottom top", scrub: true },
         });
       });
 

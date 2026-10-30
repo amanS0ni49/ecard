@@ -37,15 +37,17 @@ const description =
   "Smt. Vandana & Shri Praveen Rai request the pleasure of your gracious presence at the wedding of Avi (Bhavesh) with Guddu (Janhavi) — Friday, 20th November 2026, Bhakhar Paradise, Jaipur.";
 
 export const metadata: Metadata = {
+  // Set NEXT_PUBLIC_SITE_URL on Vercel so share cards resolve absolute image URLs.
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title,
   description,
   openGraph: {
     title,
     description,
     type: "website",
-    images: [{ url: "/photos/1.jpg", width: 853, height: 1280, alt: "Avi & Guddu" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Avi & Guddu — Wedding Invitation" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/photos/1.jpg"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
   icons: { icon: "/art/ganesha.png" },
 };
 
@@ -59,9 +61,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${playfair.variable} ${greatVibes.variable} ${cinzel.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${playfair.variable} ${greatVibes.variable} ${cinzel.variable} antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

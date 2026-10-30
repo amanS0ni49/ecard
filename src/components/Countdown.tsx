@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { WEDDING_DATE } from "@/lib/data";
+import { WEDDING_ISO } from "@/lib/data";
 
 type Parts = { days: number; hours: number; minutes: number; seconds: number };
 
-function diff(target: Date): Parts | null {
-  const ms = target.getTime() - Date.now();
+function diff(): Parts | null {
+  const ms = new Date(WEDDING_ISO).getTime() - Date.now();
   if (ms <= 0) return null;
   return {
     days: Math.floor(ms / 86_400_000),
@@ -21,11 +21,11 @@ function Unit({ value, label }: { value: number; label: string }) {
   const text = String(value).padStart(2, "0");
   return (
     <div className="flex flex-col items-center">
-      <div className="card-paper relative flex h-16 w-14 items-center justify-center overflow-hidden rounded-md sm:h-20 sm:w-18 md:h-24 md:w-22">
+      <div className="card-paper relative flex h-14 w-12 items-center justify-center overflow-hidden rounded-md sm:h-20 sm:w-18 md:h-24 md:w-22">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span
             key={text}
-            className="font-display text-2xl text-ink tabular-nums sm:text-3xl md:text-4xl"
+            className="font-display text-xl text-ink tabular-nums sm:text-3xl md:text-4xl"
             initial={{ y: "-85%", opacity: 0 }}
             animate={{ y: "0%", opacity: 1 }}
             exit={{ y: "85%", opacity: 0 }}
@@ -50,7 +50,7 @@ export default function Countdown() {
 
   useEffect(() => {
     const tick = () => {
-      setParts(diff(WEDDING_DATE));
+      setParts(diff());
       setReady(true);
     };
     tick();
@@ -58,7 +58,8 @@ export default function Countdown() {
     return () => clearInterval(id);
   }, []);
 
-  if (!ready) return <div className="h-24 sm:h-28" aria-hidden />;
+  // Matches the rendered height exactly so the hero does not jump on mount.
+  if (!ready) return <div className="h-[78px] sm:h-[104px] md:h-[120px]" aria-hidden />;
 
   if (!parts) {
     return (
