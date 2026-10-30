@@ -266,8 +266,8 @@ export const festivities: FestivityItem[] = [
     time: "9:00 AM",
     sub: "At the family residence",
     pill: "The first invitation goes to Bappa — every beginning starts with His blessings.",
-    image: "/festivities/ganesh-nimantran.png",
-    imageAlt: "Avi and Guddu offering aarti before Ganesh ji",
+    image: "/festivities/ganesh-nimantran-2.png",
+    imageAlt: "Avi and Guddu presenting the first invitation to Ganesh ji",
   },
   {
     id: "haldi",
