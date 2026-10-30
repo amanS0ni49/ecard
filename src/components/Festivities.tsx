@@ -25,7 +25,7 @@ function Chapter({ item, i }: { item: FestivityItem; i: number }) {
       data-flipped={flipped ? "1" : "0"}
     >
       {/* the scene, tilted like a photo laid on paper */}
-      <div className="md:w-1/2">
+      <div className="w-full md:w-1/2">
         <div
           className={`js-fest-art relative mx-auto w-full max-w-[380px] rotate-[-1.4deg] ${
             flipped ? "md:rotate-[1.6deg]" : ""
@@ -54,7 +54,7 @@ function Chapter({ item, i }: { item: FestivityItem; i: number }) {
       </div>
 
       {/* the words */}
-      <div className={`js-fest-copy md:w-1/2 ${flipped ? "md:text-right" : ""}`}>
+      <div className={`js-fest-copy w-full md:w-1/2 ${flipped ? "md:text-right" : ""}`}>
         <span
           className={`flex size-11 items-center justify-center rounded-full border border-gold/40 bg-white/70 ${
             flipped ? "md:ml-auto" : ""
